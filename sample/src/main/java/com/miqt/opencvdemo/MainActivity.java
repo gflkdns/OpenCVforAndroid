@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
                 case LoaderCallbackInterface.SUCCESS: {
                     Log.i(TAG, "OpenCV loaded successfully");
 
+                    //loader成功,在这里完成你的工作.
+
                     //<editor-fold desc="高斯模糊">
                     ImageView image_src = (ImageView) findViewById(R.id.image_src);
                     ImageView image_result = (ImageView) findViewById(R.id.image_result);
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+        //使用前必须要loader成功才可以.
         if (!OpenCVLoader.initDebug()) {
             OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_13, this, mLoaderCallback);
         } else {
